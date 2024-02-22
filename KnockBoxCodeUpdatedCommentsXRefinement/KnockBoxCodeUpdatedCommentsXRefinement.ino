@@ -19,7 +19,7 @@ void setup() {
   pinmode(LEDPIN, OUTPUT);
   pinmode(BUTTONPIN, INPUT);
   pinmode(MICROPHONEPIN, INPUT);
-  latch.attach(SERVOPIN);
+  opener.attach(SERVOPIN);
 
   Serial.begin(9600);
 }
@@ -30,12 +30,12 @@ void loop() {
   if (analogRead(MICROPHONEPIN) > LOUDENOUGH) {
     Serial.print("Knock heard, unlocking the box");
     digitalWrite(LEDPIN, HIGH);
-    latch.write(UNLOCK);
+    opener.write(UNLOCK);
   }
   //check if the button has been pressed
   //if pressed, move the servo to locked position
   if (digitalRead(BUTTONPIN) == HIGH) {
     Serial.print("Button has been pressed, locking the box");
-    latch.write(LOCK);
+    opener.write(LOCK);
   }
 }
