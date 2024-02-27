@@ -1,6 +1,6 @@
 //add a LCD library of functions
 #include <LiquidCrystal.h>
-
+//HAN COMMENT this looks great Corey! very pleased to see all the comments in your code as well
 //setup all the pins as constants
 const byte BUTTONPIN = 1;
 const byte NOISEPIN = A0;
@@ -22,8 +22,7 @@ void setup() {
   //set up the LCD's number of rows and columns:
   if (!screen.begin(16, 2)) {
     Serial.println("couldn't start the screen? check wiring");
-    while (1)
-      ;
+    while (1);
   }
 }
 
